@@ -1,0 +1,14 @@
+
+  useEffect(() => {
+    try {
+      const { data } = axios.get(`${server}/user/me`, {
+        withCredentials: true,
+      });
+      setUser(data);
+      console.log(data);
+      setIsAuthenticated(true);
+    } catch (error) {
+      setUser({});
+      setIsAuthenticated(false);
+    }
+  }, [server]);
